@@ -1,0 +1,26 @@
+{% load static %}<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#191919" media="(prefers-color-scheme: dark)">
+<title>Mis finanzas</title>
+<script>
+  // Antes de pintar: aplica el tema guardado y evita el "flash" blanco en modo oscuro
+  try {
+    var t = localStorage.getItem('tema');
+    var oscuro = t ? t === 'oscuro' : matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.classList.toggle('dark', oscuro);
+  } catch (e) {}
+</script>
+<link rel="stylesheet" href="{% static 'panel/panel.css' %}">
+</head>
+<body>
+<div id="root"></div>
+{# json_script escapa todo: un nombre como "</script>" no puede romper la página #}
+{{ datos_iniciales|json_script:"datos-panel" }}
+<script type="module" src="{% static 'panel/panel.js' %}"></script>
+</body>
+</html>

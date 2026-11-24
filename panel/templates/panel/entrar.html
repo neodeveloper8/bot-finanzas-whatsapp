@@ -1,0 +1,14 @@
+{% extends "panel/base.html" %}
+{% block titulo %}Entrar al panel{% endblock %}
+{% block contenido %}
+<div class="icono" aria-hidden="true">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>
+</div>
+<h1>Entrar a tu panel</h1>
+<p>Tu sesión quedará abierta en este navegador por {{ dias }} días.</p>
+<form method="post">
+  {% csrf_token %}
+  <button type="submit" class="boton">Entrar</button>
+</form>
+<p class="nota">Si no pediste este enlace, simplemente cierra esta página.</p>
+{% endblock %}

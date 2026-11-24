@@ -1,0 +1,12 @@
+.env
+.venv/
+__pycache__/
+muestras/
+db.sqlite3
+staticfiles/
+db.sqlite3-*
+frontend/node_modules/
+panel/static/panel/
+# Metadatos que agrega Windows al copiar archivos a WSL, y logs locales
+*:Zone.Identifier
+*.log

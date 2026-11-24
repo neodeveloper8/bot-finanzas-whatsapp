@@ -1,0 +1,60 @@
+@import 'tailwindcss';
+
+/* dark: se activa con la clase .dark en <html> (la ponemos nosotros), no solo con el sistema */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Colores semánticos: el componente dice "texto-suave", no "#6B6A66".
+   Cambiar de tema es cambiar estas variables; ningún componente se entera. */
+:root {
+  --fondo: #ffffff;
+  --fondo-suave: #f7f7f5;
+  --fondo-hover: #efefed;
+  --borde: #e9e9e7;
+  --borde-fuerte: #dcdcd9;
+  --texto: #2f2e2b;
+  --texto-medio: #4a4945;
+  --texto-suave: #6b6a66;
+  --acento: #2f6fde;
+  --positivo: #1e7a46;
+  --alerta: #b4561b;
+  color-scheme: light;
+}
+.dark {
+  --fondo: #191919;
+  --fondo-suave: #202020;
+  --fondo-hover: #2c2c2c;
+  --borde: #2f2f2f;
+  --borde-fuerte: #3c3c3c;
+  --texto: #e6e5e3;
+  --texto-medio: #c9c8c4;
+  --texto-suave: #9b9a97;
+  --acento: #5b9bf5;
+  --positivo: #4cb782;
+  --alerta: #e08a4f;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+  --color-fondo: var(--fondo);
+  --color-fondo-suave: var(--fondo-suave);
+  --color-fondo-hover: var(--fondo-hover);
+  --color-borde: var(--borde);
+  --color-borde-fuerte: var(--borde-fuerte);
+  --color-texto: var(--texto);
+  --color-texto-medio: var(--texto-medio);
+  --color-texto-suave: var(--texto-suave);
+  --color-acento: var(--acento);
+  --color-positivo: var(--positivo);
+  --color-alerta: var(--alerta);
+}
+
+@layer base {
+  body {
+    @apply bg-fondo text-texto font-sans antialiased;
+    font-feature-settings: 'cv11', 'ss01';
+  }
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-acento;
+  }
+}

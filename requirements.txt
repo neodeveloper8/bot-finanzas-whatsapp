@@ -1,0 +1,9 @@
+anthropic
+pydantic
+python-dotenv
+django>=6.0,<6.1
+requests
+django-q2
+pillow
+gunicorn
+whitenoise

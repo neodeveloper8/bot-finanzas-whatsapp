@@ -1,0 +1,20 @@
+{% extends "panel/base.html" %}
+{% block titulo %}Acceso al panel{% endblock %}
+{% block contenido %}
+<div class="icono" aria-hidden="true">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><polyline points="12 7 12 12 15 14"></polyline></svg>
+</div>
+{% if motivo == "vencido" %}
+  <h1>Este enlace ya no es válido</h1>
+  <p>Los enlaces de acceso duran 10 minutos y sirven una sola vez. Pide uno nuevo escribiéndole al bot:</p>
+{% elif motivo == "salio" %}
+  <h1>Cerraste sesión</h1>
+  <p>Para volver a entrar, escríbele al bot:</p>
+{% else %}
+  <h1>Entra desde WhatsApp</h1>
+  <p>Para ver tu panel, pídele un enlace de acceso al bot:</p>
+{% endif %}
+<div class="comando">Escribe <code>panel</code></div>
+<a class="boton" href="https://wa.me/">Abrir WhatsApp</a>
+<p class="nota">Así nadie puede entrar con un enlace viejo que haya quedado en el chat o en una captura. Una vez dentro, tu sesión dura 30 días.</p>
+{% endblock %}
